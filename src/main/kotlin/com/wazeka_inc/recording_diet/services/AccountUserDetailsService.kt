@@ -16,14 +16,9 @@ class AccountUserDetailsService: UserDetailsService {
     lateinit var accountRepository: AccountRepository
 
     override fun loadUserByUsername(username: String?): UserDetails {
-        println("username: $username")
-        return Optional.ofNullable(username).flatMap {
-            accountRepository.findByUsername(it)
-        }.map {
-            println(it)
-            it.toUserDetail()
-        }.orElseThrow {
-            throw UsernameNotFoundException("username: $username")
-        }
+        return Optional.ofNullable(username)
+            .flatMap(accountRepository::findByUsername)
+            .map { it.toUserDetail() }
+            .orElseThrow { UsernameNotFoundException("username: $username") }
     }
 }
