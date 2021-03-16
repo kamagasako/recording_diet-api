@@ -28,7 +28,7 @@ class WebSecurityConfig: WebSecurityConfigurerAdapter() {
                 authorize(anyRequest, authenticated)
             }
             formLogin {
-                loginPage = "/login-page"
+                loginPage = "/unauthorized"
                 loginProcessingUrl = "/login"
                 defaultSuccessUrl("/logged_in", true)
                 failureUrl = "/login_failure"

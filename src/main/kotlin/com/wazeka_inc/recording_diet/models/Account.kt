@@ -8,6 +8,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
+/**
+ * @todo ログイン名とは別に表示名を追加
+ */
 @Entity
 class Account(
     @Id @GeneratedValue var id: Long? = null,
