@@ -8,14 +8,6 @@ interface AccountRepository: JpaRepository<Account, Long> {
     fun findByUsername(username: String): Optional<Account>
 }
 
-interface BodyRecordRepository: JpaRepository<BodyRecord, Long> {
-    fun findByAccountAndDate(account: Account, date: LocalDate): List<BodyRecord>
-}
-
-interface MealRecordRepository: JpaRepository<MealRecord, Long> {
-    fun findByAccountAndDate(account: Account, date: LocalDate): List<MealRecord>
-}
-
-interface ExerciseRecordRepository: JpaRepository<ExerciseRecord, Long> {
-    fun findByAccountAndDate(account: Account, date: LocalDate): List<ExerciseRecord>
+interface DietRecordRepository: JpaRepository<DietRecord, Long> {
+    fun findByAccountAndLocalDate(account: Account, localDate: LocalDate): Optional<DietRecord>
 }

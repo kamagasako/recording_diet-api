@@ -4,12 +4,12 @@ import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
-class ExerciseRecord(
+class DietRecord(
     @Id @GeneratedValue var id: Long? = null,
-    var date: LocalDate,
-
-    var name: String,
-    var munites: Int,
+    var localDate: LocalDate,
+    var body: String,
+    var meals: String,
+    var exercises: String,
 
     @ManyToOne(optional = false) @JoinColumn(nullable = false) var account: Account,
 )
